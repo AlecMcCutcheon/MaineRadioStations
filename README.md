@@ -2,6 +2,9 @@
 A Collection of Direct Steaming links & m3u Playlists to Popular Maine Radio Stations
 
 # M3U Links
+
+[All Maine Radio Stations Playlist](https://cdn.discordapp.com/attachments/1052435865240080385/1052436070949736599/All_Maine_Radio_Stations_Playlist.m3u)
+
 | Name - Feq - Location |
 | --------------------------------------------------------------------------------------------------------------------------------------- |
 | [WMHB 89.7 FM - Augusta-Waterville, ME](https://cdn.discordapp.com/attachments/1052435865240080385/1052435872244576306/WMHB_89.7_FM_-_Augusta-Waterville_ME.m3u)| 
