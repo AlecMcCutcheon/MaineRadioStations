@@ -7,13 +7,7 @@ A Collection of Direct Steaming links & m3u Playlists to Popular Maine Radio Sta
         <ul>
             <li>text</li>
         </ul>
-        <embed name="music_playlist"
-src="https://github.com/AlecMcCutcheon/MaineRadioStations/raw/main/Stations/Bee%2098.5%20FM%20-%20Augusta-Waterville%2C%20ME.m3u"
-width="300"
-height="90"
-loop="false"
-hidden="false"
-autostart="false"> 
+        <embed src="https://github.com/AlecMcCutcheon/MaineRadioStations/raw/main/Stations/Bee%2098.5%20FM%20-%20Augusta-Waterville%2C%20ME.m3u"> 
     </div>
 </foreignObject>
 </svg>
