@@ -4,7 +4,7 @@ A Collection of Direct Steaming links & m3u Playlists to Popular Maine Radio Sta
 
 | Name - Feq - Location                     | Stream Link                                                                                    |
 | ----------------------------------------- |:----------------------------------------------------------------------------------------------:|
-| Bee 98.5 FM - Augusta-Waterville, ME      | <https://prod-54-235-228-83.wostreaming.net/townsquare-webbfmaac-ibc3?>                        |
+| Bee 98.5 FM - Augusta-Waterville, ME      | <https://bharadwajpro.github.io/m3u8-player/player/#https://prod-54-235-228-83.wostreaming.net/townsquare-webbfmaac-ibc3?>                        |
 | Cruisin 93.5 FM - Augusta-Waterville, ME  | <http://stream.radio.co/s4867e9e93/listen>                                                     |
 | Frank 107.5 FM - Lewiston, ME             | <https://17563.live.streamtheworld.com:443/WFNK_FMAAC.aac>                                     |
 | Hot Radio ME 104.7 FM - Kennebunkport, ME | <https://ice9.securenetsystems.net/WHTP>                                                       | 
