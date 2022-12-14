@@ -7,7 +7,7 @@ A Collection of Direct Steaming links & m3u Playlists to Popular Maine Radio Sta
 
 # Discord-Hosted M3U File Download Links
 
-[All Maine Radio Stations Playlist](https://cdn.discordapp.com/attachments/1052435865240080385/1052436070949736599/All_Maine_Radio_Stations_Playlist.m3u)
+[All Maine Radio Stations Playlist](https://raw.githubusercontent.com/AlecMcCutcheon/MaineRadioStations/main/All%20Stations%20Playlist.m3u)
 
 | Name - Feq - Location |
 | --------------------------------------------------------------------------------------------------------------------------------------- |
