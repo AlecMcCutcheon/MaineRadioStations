@@ -4,7 +4,7 @@
         <ul>
             <li>text</li>
         </ul>
-        <embed src="https://github.com/AlecMcCutcheon/MaineRadioStations/raw/main/Stations/Bee%2098.5%20FM%20-%20Augusta-Waterville%2C%20ME.m3u"> 
+        <embed type="application/x-mplayer2" src="https://github.com/AlecMcCutcheon/MaineRadioStations/raw/main/Stations/Bee%2098.5%20FM%20-%20Augusta-Waterville%2C%20ME.m3u"> 
     </div>
 </foreignObject>
 </svg>
