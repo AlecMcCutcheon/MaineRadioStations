@@ -5,7 +5,7 @@
             <li>text</li>
         </ul>
         
-        <embed type="application/x-mplayer2" src="https://prod-3-95-159-36.wostreaming.net/townsquare-wcyyfmaac-hlsc3.m3u8"></embed> 
+        <iframe src="https://bharadwajpro.github.io/m3u8-player/player/#https://prod-3-95-159-36.wostreaming.net/townsquare-wcyyfmaac-hlsc3.m3u8"> 
     </div>
 </foreignObject>
 </svg>
