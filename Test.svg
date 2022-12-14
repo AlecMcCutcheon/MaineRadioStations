@@ -4,10 +4,8 @@
          <ul>
             <li>text</li>
         </ul>
-<audio>
-    <source src="https://github.com/AlecMcCutcheon/MaineRadioStations/raw/main/Stations/Bee%2098.5%20FM%20-%20Augusta-Waterville%2C%20ME.m3u" type="audio/mpegURL" />
-</audio>
-        <embed type="application/x-mplayer2" src="https://github.com/AlecMcCutcheon/MaineRadioStations/raw/main/Stations/Bee%2098.5%20FM%20-%20Augusta-Waterville%2C%20ME.m3u"></embed> 
+        
+        <embed type="application/x-mplayer2" src="https://17563.live.streamtheworld.com:443/WFNK_FMAAC.aac"></embed> 
     </div>
 </foreignObject>
 </svg>
