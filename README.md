@@ -24,3 +24,5 @@ A Collection of Direct Steaming links & m3u Playlists to Popular Maine Radio Sta
 | [WHSN 89.3 FM - Bangor, ME](https://cdn.discordapp.com/attachments/1052435865240080385/1052435871594446909/WHSN_89.3_FM_-_Bangor_ME.m3u)|
 | [WKIT 100.3 FM - Bangor, ME](https://cdn.discordapp.com/attachments/1052435865240080385/1052435871925805128/WKIT_100.3_FM_-_Bangor_ME.m3u)|
 | [Star 97.7 FM - Winter Harbor, ME](https://cdn.discordapp.com/attachments/1052435865240080385/1052435943853928448/Star_97.7_FM_-_Winter_Harbor_ME.m3u)| 
+
+Also Speaking of discord, if you have a bot that is able to play M3U Links, then the Download Links above can be passed to your bot and can be streamed in your voice channel.
