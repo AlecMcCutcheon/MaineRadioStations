@@ -1,13 +1,22 @@
 # Maine Radio Stations
 A Collection of Direct Steaming links & m3u Playlists to Popular Maine Radio Stations
 
-<embed name="music_playlist"
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+<foreignObject width="100" height="100">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+        <ul>
+            <li>text</li>
+        </ul>
+        <embed name="music_playlist"
 src="https://github.com/AlecMcCutcheon/MaineRadioStations/raw/main/Stations/Bee%2098.5%20FM%20-%20Augusta-Waterville%2C%20ME.m3u"
 width="300"
 height="90"
 loop="false"
 hidden="false"
 autostart="false"> 
+    </div>
+</foreignObject>
+</svg>
 
 | Name - Feq - Location                     | Stream Link                                                                                    |
 | ----------------------------------------- |:----------------------------------------------------------------------------------------------:|
