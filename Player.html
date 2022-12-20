@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+      <script type="text/javascript" src="https://raw.githubusercontent.com/john-doherty/swiped-events/master/src/swiped-events.js"></script>
       <style class="INLINE_PEN_STYLESHEET_ID">
          .container {
          width: 100vw;
@@ -228,7 +229,7 @@
          }
       </style>
    </head>
-   <body>
+   <body data-swipe-threshold="100" data-swipe-timeout="250">
       <h1 style="color:#d3d7dc; display: block; align-items: center; justify-content: center; text-align: center;">Maine Radio Stations</h1>
       <div class="carousel">
          <figure>
@@ -486,22 +487,14 @@
          </nav>
       </div>
       <script>
-let touchstartX = 0
-let touchendX = 0
     
-function checkDirection() {
-  if (touchendX < touchstartX) document.getElementById("next").click()
-  if (touchendX > touchstartX) document.getElementById("prev").click()
-}
+document.addEventListener('swiped-left', function(e) {
+    document.getElementById("next").click()
+});
 
-document.addEventListener('touchstart', e => {
-  touchstartX = e.changedTouches[0].screenX
-})
-
-document.addEventListener('touchend', e => {
-  touchendX = e.changedTouches[0].screenX
-  checkDirection()
-})
+document.addEventListener('swiped-right', function(e) {
+    document.getElementById("prev").click()
+});
 	      
 	      var
          	carousel = document.querySelector('.carousel'),
