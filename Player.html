@@ -229,7 +229,7 @@
          }
       </style>
    </head>
-   <body data-swipe-threshold="100" data-swipe-timeout="1000">
+   <body data-swipe-threshold="10" data-swipe-timeout="1000">
       <h1 style="color:#d3d7dc; display: block; align-items: center; justify-content: center; text-align: center;">Maine Radio Stations</h1>
       <div class="carousel">
          <figure>
@@ -489,11 +489,13 @@
       <script>
     
 document.addEventListener('swiped-left', function(e) {
-    document.getElementById("next").click()
+    document.getElementById("next").click();
+	console.log(e.detail.dir);
 });
 
 document.addEventListener('swiped-right', function(e) {
-    document.getElementById("prev").click()
+    document.getElementById("prev").click();
+	console.log(e.detail.dir);
 });
 	      
 	      var
