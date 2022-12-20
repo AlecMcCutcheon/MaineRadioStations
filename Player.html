@@ -32,7 +32,7 @@ jQuery.noConflict();
   jQuery.detectSwipe = {
     version: '2.1.2',
     enabled: 'ontouchstart' in document.documentElement,
-    preventDefault: true,
+    preventDefault: false,
     threshold: 20
   };
 
@@ -578,16 +578,16 @@ jQuery.noConflict();
          </nav>
       </div>
       <script>
-
-document.addEventListener('swipeleft', function(){
-  document.getElementById("next").click(); 
+	      
+jQuery(document).on('swipeleft',  function(){
+document.getElementById("next").click(); 
 	  console.log("Swiped Left");
-});
+})
 
-document.addEventListener('swiperight', function(){
-  document.getElementById("prev").click(); 
+jQuery(document).on('swiperight',  function(){
+document.getElementById("prev").click(); 
 	  console.log("Swiped Right");
-});
+})
 	      
 	      var
          	carousel = document.querySelector('.carousel'),
