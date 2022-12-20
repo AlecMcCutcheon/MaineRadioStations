@@ -7,7 +7,8 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-      <script type="text/javascript" src="https://raw.githubusercontent.com/john-doherty/swiped-events/master/dist/swiped-events.min.js"></script>
+      <script type="text/javascript" src="https://raw.githubusercontent.com/marcandre/detect_swipe/master/jquery.detect_swipe.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
       <style class="INLINE_PEN_STYLESHEET_ID">
          .container {
          width: 100vw;
@@ -487,15 +488,15 @@
          </nav>
       </div>
       <script>
-    
-document.addEventListener('swiped-left', function(e) {
-    document.getElementById("next").click();
-	console.log(e.detail.dir);
+
+document.addEventListener('swipeleft', function(){
+  document.getElementById("next").click(); 
+	  console.log("Swiped Left");
 });
 
-document.addEventListener('swiped-right', function(e) {
-    document.getElementById("prev").click();
-	console.log(e.detail.dir);
+document.addEventListener('swiperight', function(){
+  document.getElementById("prev").click(); 
+	  console.log("Swiped Right");
 });
 	      
 	      var
