@@ -481,12 +481,29 @@
             </div>
          </figure>
          <nav>
-            <button class="nav prev">Prev</button>
-            <button class="nav next">Next</button>
+                <button id="prev" class="nav prev">Prev</button>
+		<button id="next" class="nav next">Next</button>
          </nav>
       </div>
       <script>
-         var
+let touchstartX = 0
+let touchendX = 0
+    
+function checkDirection() {
+  if (touchendX < touchstartX) document.getElementById("next").click()
+  if (touchendX > touchstartX) document.getElementById("prev").click()
+}
+
+document.addEventListener('touchstart', e => {
+  touchstartX = e.changedTouches[0].screenX
+})
+
+document.addEventListener('touchend', e => {
+  touchendX = e.changedTouches[0].screenX
+  checkDirection()
+})
+	      
+	      var
          	carousel = document.querySelector('.carousel'),
          	figure = carousel.querySelector('figure'),
          	nav = carousel.querySelector('nav'),
