@@ -704,7 +704,8 @@
 				// TODO: Update playback state.
 				const actionHandlers = [
 					['play',          () => { 
-
+						
+						navigator.mediaSession.playbackState = 'playing';
 						button.value = "Resume";
 						button.player = new Audio();
 						button.player.src = button.dataset.url;
@@ -714,17 +715,16 @@
 						setTimeout(function() {
 						button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop";
 						}, 2000);
-						navigator.mediaSession.playbackState = 'playing';
 						
 					}],
 					['pause',         () => { 
 				
+					navigator.mediaSession.playbackState = 'paused';
 					button.value = "Stop";
 					button.player.pause()
 					button.player.src = ''
 					button.player = undefined
 					button.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play";
-					navigator.mediaSession.playbackState = 'paused';
 					
 					}],
 					//['previoustrack', () => { /* ... */ }],
