@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.2">
 	<style data-merge-styles="true"></style>
 	<meta charset="UTF-8">
-	<meta property="og:image" content="https://raw.githubusercontent.com/AlecMcCutcheon/MaineRadioStations/main/Preview.jpg" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script>
 	jQuery.noConflict();
@@ -33,7 +32,7 @@
 			version: '2.1.2',
 			enabled: 'ontouchstart' in document.documentElement,
 			preventDefault: false,
-			threshold: 500
+			threshold: 600
 		};
 		var startX,
 			startY,
@@ -199,6 +198,7 @@
 		padding-top: 0%;
 		padding-bottom: 0%;
 		background-color: transparent;
+		pointer-events: all !important;
 	}
 	
 	.iphone .buttons {
@@ -206,6 +206,7 @@
 		flex-direction: row;
 		justify-content: space-around;
 		padding: 0.5em 0;
+		pointer-events: all !important;
 	}
 	
 	.neu {
@@ -252,12 +253,20 @@
 		justify-content: center;
 		background: #212529;
 		font-family: "Roboto", sans-serif;
-		zoom: 100%;
+		zoom:100%;
 	}
 	
 	html {
 		height: fit-content;
-		zoom: 100%;
+		zoom:100%;
+		
+    position: absolute;
+    width: auto;
+    top: 0;
+    right:0;
+    bottom:25vh;
+    left:0;
+    margin:auto;
 	}
 	
 	.carousel {
@@ -268,10 +277,12 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	
 	}
 	
 	.carousel > * {
 		flex: 0 0 auto;
+
 	}
 	
 	.carousel figure {
@@ -279,7 +290,7 @@
 		width: 500px;
 		top: 0%;
 		transform-style: preserve-3d;
-		transition: transform 0.2s;
+		transition: transform 0.9s;
 		transform-origin: 50% 50% -482.8427124746px;
 	}
 	
@@ -291,23 +302,28 @@
 	}
 	
 	.container {
-		width: 100%;
+		width: 1px;
 		box-sizing: border-box;
 		padding: 0 135px;
 		opacity: 1;
 		display: relative;
 		height: fit-content;
+		pointer-events: none;
 	}
 	
 	.carousel figure .container:not(:first-of-type) {
 		position: absolute;
 		left: 0;
 		top: 0;
+		bottom: 0;
+		right: 0;
 		transform-origin: 50% 50% -482.8427124746px;
+
 	}
 	
 	.carousel figure .container:nth-child(2) {
 		transform: rotateY(0.4833219467rad);
+
 	}
 	
 	.carousel figure .container:nth-child(3) {
