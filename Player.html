@@ -710,13 +710,23 @@
 						button.player.src = button.dataset.url;
 						button.player.load();
 						button.player.play()
-						button.getElementsByClassName("fas fa-play")[0].className = "fas fa-spinner"
+						button.getElementsByClassName("fas fa-play")[0].className = "fas fa-spinner";
 						setTimeout(function() {
-						button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop"
+						button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop";
 						}, 2000);
+						navigator.mediaSession.playbackState = 'playing';
 						
 					}],
-					//['pause',         () => { /* ... */ }],
+					['pause',         () => { 
+				
+					button.value = "Stop";
+					button.player.pause()
+					button.player.src = ''
+					button.player = undefined
+					button.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play";
+					navigator.mediaSession.playbackState = 'paused';
+					
+					}],
 					//['previoustrack', () => { /* ... */ }],
 					//['nexttrack',     () => { /* ... */ }],
 					['stop',          () => { 
@@ -725,7 +735,7 @@
 						button.player.pause()
 						button.player.src = ''
 						button.player = undefined
-						button.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play"
+						button.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play";
 			
 					}],
 				];
