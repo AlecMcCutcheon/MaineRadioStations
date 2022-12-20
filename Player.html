@@ -29,7 +29,7 @@ jQuery.noConflict();
     }
 }(function($) {
 
-  jQuery(document).detectSwipe = {
+  jQuery.detectSwipe = {
     version: '2.1.2',
     enabled: 'ontouchstart' in document.documentElement,
     preventDefault: true,
@@ -47,7 +47,7 @@ jQuery.noConflict();
   }
 
   function onTouchMove(e) {
-    if (jQuery(document).detectSwipe.preventDefault) { e.preventDefault(); }
+    if (jQuery.detectSwipe.preventDefault) { e.preventDefault(); }
     if(isMoving) {
       var x = e.touches[0].pageX;
       var y = e.touches[0].pageY;
@@ -55,10 +55,10 @@ jQuery.noConflict();
       var dy = startY - y;
       var dir;
       var ratio = window.devicePixelRatio || 1;
-      if(Math.abs(dx) * ratio >= jQuery(document).detectSwipe.threshold) {
+      if(Math.abs(dx) * ratio >= jQuery.detectSwipe.threshold) {
         dir = dx > 0 ? 'left' : 'right'
       }
-      else if(Math.abs(dy) * ratio >= jQuery(document).detectSwipe.threshold) {
+      else if(Math.abs(dy) * ratio >= jQuery.detectSwipe.threshold) {
         dir = dy > 0 ? 'up' : 'down'
       }
       if(dir) {
@@ -86,11 +86,11 @@ jQuery.noConflict();
     this.removeEventListener('touchstart', onTouchStart);
   }
 
-  jQuery(document).event.special.swipe = { setup: setup };
+  jQuery.event.special.swipe = { setup: setup };
 
-  jQuery(document).each(['left', 'up', 'down', 'right'], function () {
-    jQuery(document).event.special['swipe' + this] = { setup: function(){
-      jQuery(this).on('swipe', jQuery(document).noop);
+  jQuery.each(['left', 'up', 'down', 'right'], function () {
+    jQuery.event.special['swipe' + this] = { setup: function(){
+      jQuery(this).on('swipe', jQuery.noop);
     } };
   });
 }));
