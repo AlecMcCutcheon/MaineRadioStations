@@ -702,9 +702,48 @@
 				});
 
 				// TODO: Update playback state.
-			}
+				const actionHandlers = [
+					['play',          () => { 
+
+						button.value = "Resume";
+						button.player = new Audio();
+						button.player.src = button.dataset.url;
+						button.player.load();
+						button.player.play()
+						button.getElementsByClassName("fas fa-play")[0].className = "fas fa-spinner"
+						setTimeout(function() {
+						button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop"
+						}, 2000);
+						
+					}],
+					//['pause',         () => { /* ... */ }],
+					//['previoustrack', () => { /* ... */ }],
+					//['nexttrack',     () => { /* ... */ }],
+					['stop',          () => { 
+					
+						button.value = "Stop";
+						button.player.pause()
+						button.player.src = ''
+						button.player = undefined
+						button.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play"
 			
-		} else if(button.value == "Resume") {
+					}],
+				];
+				
+				for (const [action, handler] of actionHandlers) {
+					try {
+						navigator.mediaSession.setActionHandler(action, handler);
+					} catch (error) {
+						console.log(`The media session action "${action}" is not supported yet.`);
+					}
+				}
+				
+			}
+
+		
+		
+			
+		} else if (button.value == "Resume") {
 			
 			button.value = "Stop";
 			button.player.pause()
