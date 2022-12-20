@@ -630,6 +630,23 @@
 
 	function toggle(button) {
 		if(button.value == "Stop") {
+		
+		let All_buttons = document.getElementsByClassName("btn")
+			
+			for (let otherbutton of document.getElementsByTagName('button')) {
+			
+				if (otherbutton.value == "Resume") {
+					
+					otherbutton.value = "Stop";
+			        otherbutton.player.pause()
+			        otherbutton.player.src = ''
+			        otherbutton.player = undefined
+					otherbutton.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play"
+				
+				}
+			
+			}
+			
 			button.value = "Resume";
 			button.player = new Audio();
 			button.player.src = button.dataset.url;
@@ -640,6 +657,7 @@
 				button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop"
 			}, 2000);
 		} else if(button.value == "Resume") {
+			
 			button.value = "Stop";
 			button.player.pause()
 			button.player.src = ''
