@@ -259,23 +259,24 @@
 	html {
 		height: fit-content;
 		zoom:100%;
-   		position: absolute;
-  	        width: auto;
-    		top: 0;
-    		right:0;
-    		bottom:10vh;
-    		left:0;
-    		margin:auto;
+		
+    position: absolute;
+    width: auto;
+    top: 0;
+    right:0;
+    bottom:10vh;
+    left:0;
+    margin:auto;
 	}
 	
 	.fa-spinner {
-		transition: transform 4.5s;
-    		-webkit-transform: rotate(720deg);
-    		-moz-transform: rotate(720deg);
-    		-ms-transform: rotate(720deg);
-    		-o-transform: rotate(720deg);
-    		transform: rotate(720deg);
-	}
+	transition: transform 4.5s;
+    -webkit-transform: rotate(720deg);
+    -moz-transform: rotate(720deg);
+    -ms-transform: rotate(720deg);
+    -o-transform: rotate(720deg);
+    transform: rotate(720deg);
+}
 	
 	.carousel {
 		padding: 20px;
@@ -421,7 +422,7 @@
                         Skowhegan ME
                      </h3> </div>
 					<div class="buttons">
-						<button id="Resume/Stop Button" onclick="toggle(this);" value="Stop" data-url="https://prod-54-82-205-117.wostreaming.net/blueberry-wtosfmaac-ibc1?" class="btn lg neu"><i class="fas fa-play"></i></button>
+						<button id="Resume/Stop Button" onclick="toggle(this);" value="Stop" data-radio-title="WTOS 105.3 FM" data-url="https://prod-54-82-205-117.wostreaming.net/blueberry-wtosfmaac-ibc1?" class="btn lg neu"><i class="fas fa-play"></i></button>
 					</div>
 					<div class="track neu">
 						<input class="slider" type="range" min="0" max="1000" value="500" oninput="volume(this);"> </div>
@@ -655,6 +656,11 @@
 		figure.style.transform = `rotateY(${currImage * -theta}rad)`;
 	}
 
+	function Strip(html){
+		let doc = new DOMParser().parseFromString(html, 'text/html');
+		return (doc.body.textContent || "").replace(/\n/g, '').trim();
+	}
+			
 	function toggle(button) {
 		if(button.value == "Stop") {
 		
@@ -683,6 +689,21 @@
 			setTimeout(function() {
 				button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop"
 			}, 2000);
+			
+			
+			if ("mediaSession" in navigator) {
+				navigator.mediaSession.metadata = new MediaMetadata({
+				title: Strip(button.parentNode.parentNode.getElementsByTagName('h2')[0].textContent),
+				artist: Strip(button.parentNode.parentNode.getElementsByTagName('h3')[0].textContent),
+				album: 'Maine Radio Stations',
+				artwork: [
+					{ src: (button.parentNode.parentNode.getElementsByTagName('img')[0].src),   sizes: (button.parentNode.parentNode.getElementsByTagName('img')[0].width + "x" + button.parentNode.parentNode.getElementsByTagName('img')[0].height)},
+				]
+				});
+
+				// TODO: Update playback state.
+			}
+			
 		} else if(button.value == "Resume") {
 			
 			button.value = "Stop";
