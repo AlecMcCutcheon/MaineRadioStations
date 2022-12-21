@@ -8,17 +8,6 @@
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
 	<style data-merge-styles="true"></style>
 	<meta charset="UTF-8">
-	<script>
-	window.onload = function() {
-		
-		if (performance.navigation.type != 0) {
-		
-		document.write('<a id="HardRefresh" style="display: none;" href="' + window.location.href + '"></a>');
-		document.getElementById("HardRefresh").click()
-		
-		}
-	};
-	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
@@ -802,6 +791,17 @@
 			audio.volume = slider.value / 1000
 		}
 	}
+	</script>
+	<script>
+	window.onload = function() {
+		
+		if (performance.navigation.type != 0) {
+		
+		document.write('<a id="HardRefresh" style="display: none;" href="' + window.location.href + '"></a>');
+		document.getElementById("HardRefresh").click()
+		
+		}
+	};
 	</script>
 </body>
 
