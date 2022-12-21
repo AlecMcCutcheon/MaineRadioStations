@@ -5,7 +5,7 @@ A Collection of Direct Steaming links & m3u Playlists to Popular Maine Radio Sta
 
 # Web Player
 
-[Maine Radio Stations Web Player WIP](https://alecmccutcheon.github.io/MaineRadioStations/Player.html)
+[Maine Radio Stations Web Player WIP](https://alecmccutcheon.github.io/MaineRadioStations/)
 <br></br>
 <img src="https://raw.githubusercontent.com/AlecMcCutcheon/MaineRadioStations/main/Preview.jpg" width="400" height="300" />
 
