@@ -797,12 +797,10 @@
 		
 		if (performance.navigation.type != 0) {
 		
-		document.write('<a id="HardRefresh" style="display: none;" href="' + window.location.href + '"></a>');
-		document.getElementById("HardRefresh").click()
+			window.open(window.location.href, "_self");
 		
 		}
 	};
 	</script>
 </body>
-
 </html>
