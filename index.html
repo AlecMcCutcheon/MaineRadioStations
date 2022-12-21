@@ -654,9 +654,8 @@
 			async function AwaitPlay(TargetButton){
 					
 				await TargetButton.player.play();
-				function ReadyState(TargetButton2) { do { console.log(TargetButton2.player.readyState) } while (TargetButton2.player.readyState < 3) } 
+				function ReadyState(TargetButton2) { do {} while (TargetButton2.player.readyState < 3) } 
 				await ReadyState(TargetButton)
-				console.log(TargetButton.player.readyState)
 				navigator.mediaSession.playbackState = 'playing';
 			
 			}
