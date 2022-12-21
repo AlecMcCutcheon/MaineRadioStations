@@ -660,9 +660,10 @@
 		let doc = new DOMParser().parseFromString(html, 'text/html');
 		return (doc.body.textContent || "").replace(/\n/g, '').trim();
 	}
+	
 			
 	function toggle(button) {
-		if(button.value == "Stop") {
+		if(button.value == "Stop" || button.dataset.pause == "paused") {
 		
 		let All_buttons = document.getElementsByClassName("btn")
 			
@@ -672,24 +673,61 @@
 					
 					otherbutton.value = "Stop";
 			        otherbutton.player.pause()
-			        otherbutton.player.src = ''
-			        otherbutton.player = undefined
-					otherbutton.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play"
+			        otherbutton.player.src = '';
+			        otherbutton.player = undefined;
+					try {otherbutton.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play";}catch{}
+					otherbutton.dataset.pause = undefined;
 				
 				}
 			
 			}
 			
+			async function AwaitPlay(){
+			await button.player.play()
+			navigator.mediaSession.playbackState = 'playing';
+			}
+			
+			async function AwaitPause(){
+			await button.player.pause()
+			navigator.mediaSession.playbackState = 'paused';
+			}
+			
 			button.value = "Resume";
 			button.player = new Audio();
 			button.player.src = button.dataset.url;
+			button.player.preload = "auto";
 			button.player.load();
-			button.player.play()
-			button.getElementsByClassName("fas fa-play")[0].className = "fas fa-spinner"
-			setTimeout(function() {
-				button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop"
-			}, 2000);
 			
+			var Count = 0;
+			var ButtonCount = 0;
+			var TotalButtonCount = document.getElementsByClassName("btn").length - 1;
+			var CurrentButtonIndex = 0;
+			var NextButtonIndex = 0;
+			var PrevButtonIndex = 0;
+						
+            button.dataset.state = "Current"
+						
+						for (var otherbutton of (document.getElementsByClassName("btn"))) {
+							if (otherbutton.dataset.state == "Current") {
+								ButtonCount = Count;
+								if (ButtonCount == TotalButtonCount) {
+									PrevButtonIndex = ButtonCount - 1;
+									CurrentButtonIndex = ButtonCount;
+									NextButtonIndex = 0;
+								} else if (ButtonCount == 0) {
+									PrevButtonIndex = TotalButtonCount;
+									CurrentButtonIndex = ButtonCount
+									NextButtonIndex = 1;
+								} else {
+									PrevButtonIndex = ButtonCount - 1;
+									CurrentButtonIndex = ButtonCount;
+									NextButtonIndex = ButtonCount + 1;
+								}
+							}
+							Count++
+						}
+						
+			button.dataset.state = undefined
 			
 			if ("mediaSession" in navigator) {
 				navigator.mediaSession.metadata = new MediaMetadata({
@@ -705,30 +743,19 @@
 				const actionHandlers = [
 					['play',          () => { 
 						
-						navigator.mediaSession.playbackState = 'playing';
-						button.value = "Resume";
-						button.player = new Audio();
-						button.player.src = button.dataset.url;
-						button.player.load();
-						button.player.play()
-						button.getElementsByClassName("fas fa-play")[0].className = "fas fa-spinner";
-						setTimeout(function() {
-						button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop";
-						}, 2000);
+					document.getElementsByClassName("btn")[CurrentButtonIndex].click();
 						
 					}],
 					['pause',         () => { 
 				
-					navigator.mediaSession.playbackState = 'paused';
-					button.value = "Stop";
-					button.player.pause()
-					button.player.src = ''
-					button.player = undefined
+					button.value = "Resume";
+					button.dataset.pause = "paused"
+					AwaitPause()
 					button.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play";
 					
 					}],
-					//['previoustrack', () => { /* ... */ }],
-					//['nexttrack',     () => { /* ... */ }],
+					['previoustrack', () => { document.getElementsByClassName("btn")[PrevButtonIndex].click(); document.getElementById("prev").click(); }],
+					['nexttrack',     () => { document.getElementsByClassName("btn")[NextButtonIndex].click(); document.getElementById("next").click(); }],
 					['stop',          () => { 
 					
 						button.value = "Stop";
@@ -740,6 +767,12 @@
 					}],
 				];
 				
+			//	navigator.mediaSession.setActionHandler('play', null);
+			//	navigator.mediaSession.setActionHandler('pause', null);
+			//	navigator.mediaSession.setActionHandler('previoustrack', null);
+			//	navigator.mediaSession.setActionHandler('nexttrack', null);
+			//	navigator.mediaSession.setActionHandler('stop', null);
+				
 				for (const [action, handler] of actionHandlers) {
 					try {
 						navigator.mediaSession.setActionHandler(action, handler);
@@ -750,8 +783,11 @@
 				
 			}
 
-		
-		
+			AwaitPlay();
+			button.getElementsByClassName("fas fa-play")[0].className = "fas fa-spinner";
+			setTimeout(function() {
+				button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop";
+			}, 2000);
 			
 		} else if (button.value == "Resume") {
 			
