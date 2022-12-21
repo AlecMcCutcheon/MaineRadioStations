@@ -663,16 +663,27 @@
 	
 			
 	function toggle(button) {
+	
+			async function AwaitPlay(TargetButton){
+			await TargetButton.player.play()
+			navigator.mediaSession.playbackState = 'playing';
+			}
+			
+			async function AwaitPause(TargetButton){
+			await TargetButton.player.pause()
+			navigator.mediaSession.playbackState = 'paused';
+			}
+			
 		if(button.value == "Stop" || button.dataset.pause == "paused") {
 		
 		let All_buttons = document.getElementsByClassName("btn")
 			
-			for (let otherbutton of document.getElementsByTagName('button')) {
+			for (let otherbutton of All_buttons) {
 			
 				if (otherbutton.value == "Resume") {
 					
 					otherbutton.value = "Stop";
-			        otherbutton.player.pause()
+			        AwaitPause(otherbutton);
 			        otherbutton.player.src = '';
 			        otherbutton.player = undefined;
 					try {otherbutton.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play";}catch{}
@@ -682,21 +693,17 @@
 			
 			}
 			
-			async function AwaitPlay(){
-			await button.player.play()
-			navigator.mediaSession.playbackState = 'playing';
-			}
-			
-			async function AwaitPause(){
-			await button.player.pause()
-			navigator.mediaSession.playbackState = 'paused';
-			}
-			
 			button.value = "Resume";
 			button.player = new Audio();
 			button.player.src = button.dataset.url;
 			button.player.preload = "auto";
-			button.player.load();
+			
+			AwaitPause(button);
+			AwaitPlay(button);
+			button.getElementsByClassName("fas fa-play")[0].className = "fas fa-spinner";
+			setTimeout(function() {
+				button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop";
+			}, 2000);
 			
 			var Count = 0;
 			var ButtonCount = 0;
@@ -750,28 +757,19 @@
 				
 					button.value = "Resume";
 					button.dataset.pause = "paused"
-					AwaitPause()
+					AwaitPause(button)
 					button.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play";
 					
 					}],
-					['previoustrack', () => { document.getElementsByClassName("btn")[PrevButtonIndex].click(); document.getElementById("prev").click(); }],
-					['nexttrack',     () => { document.getElementsByClassName("btn")[NextButtonIndex].click(); document.getElementById("next").click(); }],
-					['stop',          () => { 
-					
-						button.value = "Stop";
-						button.player.pause()
-						button.player.src = ''
-						button.player = undefined
-						button.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play";
-			
-					}],
+					['previoustrack', () => { document.getElementsByClassName("btn")[PrevButtonIndex].click(); document.getElementById("prev").click(); AwaitPause(button);}],
+					['nexttrack',     () => { document.getElementsByClassName("btn")[NextButtonIndex].click(); document.getElementById("next").click(); AwaitPause(button);}],
 				];
 				
-			//	navigator.mediaSession.setActionHandler('play', null);
-			//	navigator.mediaSession.setActionHandler('pause', null);
-			//	navigator.mediaSession.setActionHandler('previoustrack', null);
-			//	navigator.mediaSession.setActionHandler('nexttrack', null);
-			//	navigator.mediaSession.setActionHandler('stop', null);
+				navigator.mediaSession.setActionHandler('play', null);
+				navigator.mediaSession.setActionHandler('pause', null);
+				navigator.mediaSession.setActionHandler('previoustrack', null);
+				navigator.mediaSession.setActionHandler('nexttrack', null);
+				navigator.mediaSession.setActionHandler('stop', null);
 				
 				for (const [action, handler] of actionHandlers) {
 					try {
@@ -782,20 +780,13 @@
 				}
 				
 			}
-
-			AwaitPlay();
-			button.getElementsByClassName("fas fa-play")[0].className = "fas fa-spinner";
-			setTimeout(function() {
-				button.getElementsByClassName("fas fa-spinner")[0].className = "fas fa-stop";
-			}, 2000);
 			
 		} else if (button.value == "Resume") {
 			
-			button.value = "Stop";
-			button.player.pause()
-			button.player.src = ''
-			button.player = undefined
-			button.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play"
+			button.value = "Resume";
+			button.dataset.pause = "paused"
+			AwaitPause(button)
+			button.getElementsByClassName("fas fa-stop")[0].className = "fas fa-play";
 		}
 	}
 
