@@ -1,5 +1,5 @@
 # Maine Radio Stations
-A Collection of Direct Steaming links & m3u Playlists to Popular Maine Radio Stations
+A Collection of Direct Steaming links & m3u Playlists to Popular Maine Radio Stations + Web Player
 
 [All Stations Playlist](https://raw.githubusercontent.com/AlecMcCutcheon/MaineRadioStations/main/All%20Stations%20Playlist.m3u)
 
