@@ -19,7 +19,7 @@ A Collection of Direct Steaming links & m3u Playlists to Popular Maine Radio Sta
 | WCYY 94.3 FM - Portland, ME - (Currently Unsupported by player)|
 | Bee 98.5 FM - Augusta-Waterville, ME - (Currently Unsupported by player)|
 | The Bear 97.1 FM - Bangor, ME - (Currently Unsupported by player)|
-| [The Moose 92.3 FM - Augusta, ME](https://cdn.discordapp.com/attachments/1052435865240080385/1052435944407568384/The_Moose_92.3_FM_-_Augusta_ME.m3u)|
+| [The Moose 92.3 FM - Augusta, ME]()|
 | WTOS 105.3 FM - Skowhegan, ME - (Currently Unsupported by player)|
 | Frank 107.5 FM - Lewiston, ME - (Currently Unsupported by player)|
 | [The Mix 107.9 FM - Augusta-Waterville, ME](https://cdn.discordapp.com/attachments/1052435865240080385/1052435997494870087/Mix_107.9_FM_-_Augusta-Waterville_ME.m3u)|
@@ -50,4 +50,4 @@ The Bear 97.1 FM "https://live.amperwave.net/manifest/blueberry-wbfbfmaac-hlsc1.
 
 WCYY 94.3 FM "https://prod-3-95-159-36.amperwave.net/townsquare-wcyyfmaac-hlsc3.m3u8"
 
-
+The BetaPlayer shound now have a working "The Moose 92.3 FM"
